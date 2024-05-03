@@ -1,0 +1,27 @@
+.itemBox {
+  width: 70%;
+  height: 70%;
+  background-color: rgb(222, 225, 218);
+  padding: 5px;
+  margin: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.itemBox img {
+  width: 50%;
+  height: 50%;
+}
+
+.itemBox h2 {
+  background-color: aliceblue;
+  padding: 10px 0;
+}
+
+.itemBox div button {
+  margin: 3px;
+}
