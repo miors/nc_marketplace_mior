@@ -84,6 +84,7 @@ export default function SellItemPage({ categoriesInApp }) {
         <label htmlFor="category_name">Category name:</label>
         <br />
         <select
+          key="category-select-box"
           name="category_name"
           id="category_name"
           value={category}
@@ -91,14 +92,12 @@ export default function SellItemPage({ categoriesInApp }) {
             setCategory(event.target.value);
           }}
         >
-          <option key="title-text">Please select a category:</option>
-          {categoriesInApp.map((category) => {
+          <option key="category-option">Please select a category:</option>
+          {categoriesInApp.map((category, index) => {
             return (
-              <>
-                <option key={category.category_name}>
-                  {category.category_name}
-                </option>
-              </>
+              <option key={category.category_name}>
+                {category.category_name}
+              </option>
             );
           })}
         </select>
