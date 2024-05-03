@@ -8,7 +8,7 @@ export default function SellItemPage({ categoriesInApp }) {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [itemsList, setItemsList] = useState([]);
+  const [item, setItem] = useState({});
 
   useEffect(() => {}, []);
 
@@ -16,8 +16,8 @@ export default function SellItemPage({ categoriesInApp }) {
     event.preventDefault();
     api
       .postNewSellItem(itemName, imgUrl, price, description, category)
-      .then((listOfItems) => {
-        setItemsList(listOfItems);
+      .then((item) => {
+        setItem(item);
       });
   }
 
@@ -101,7 +101,7 @@ export default function SellItemPage({ categoriesInApp }) {
         <button className="sell-button">Sell item</button>
       </form>
 
-      {itemsList.length > 0 ? (
+      {item.hasOwnProperty("item_id") ? (
         <div className="forSaleMessage">
           Success! You have placed the item for sale
         </div>

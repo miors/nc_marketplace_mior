@@ -20,7 +20,6 @@ const getCategories = () => {
   return axios
     .get(url)
     .then((res) => {
-      console.log(res.data.categories);
       return res.data.categories;
     })
     .catch((err) => {
@@ -32,14 +31,20 @@ const getCategories = () => {
 
 const postNewSellItem = (itemName, imgUrl, price, description, category) => {
   const url = `${baseURL}/api/items`;
-  const postBody = { itemName, imgUrl, price, description, category };
+  const postBody = {
+    item_name: itemName,
+    img_url: imgUrl,
+    price: price,
+    description: description,
+    category_name: category,
+  };
   return axios
-    .get(url, postBody)
+    .post(url, postBody)
     .then((res) => {
-      console.log(res.data.items);
-      return res.data.items;
+      return res.data.item;
     })
     .catch((err) => {
+      console.log(err);
       if (err.name === "AxiosError") {
         console.log("An error occured");
       }
