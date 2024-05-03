@@ -1,8 +1,8 @@
 import axios from "axios";
-const baseURL = "https://nc-marketplace-sem-2.onrender.com";
+const baseURL = "https://nc-marketplace-sem-2.onrender.com/api";
 
 const getItemsList = () => {
-  const url = `${baseURL}/api/items`;
+  const url = `${baseURL}/items`;
   return axios
     .get(url)
     .then((res) => {
@@ -16,7 +16,7 @@ const getItemsList = () => {
 };
 
 const getCategories = () => {
-  const url = `${baseURL}/api/categories`;
+  const url = `${baseURL}/categories`;
   return axios
     .get(url)
     .then((res) => {
@@ -30,7 +30,7 @@ const getCategories = () => {
 };
 
 const postNewSellItem = (itemName, imgUrl, price, description, category) => {
-  const url = `${baseURL}/api/items`;
+  const url = `${baseURL}/items`;
   const postBody = {
     item_name: itemName,
     img_url: imgUrl,
@@ -49,6 +49,14 @@ const postNewSellItem = (itemName, imgUrl, price, description, category) => {
         console.log("An error occured");
       }
     });
+};
+
+// POST /api/users/:username/basket
+
+const postItemToUserBasket = (username, item_id) => {
+  const url = `${baseURL}/users/:username/basket`;
+
+  const postBody = { item_id };
 };
 
 export default { getItemsList, getCategories, postNewSellItem };

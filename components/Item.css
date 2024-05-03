@@ -25,3 +25,10 @@
 .itemBox div button {
   margin: 3px;
 }
+
+.itemPrice {
+  background-color: rgb(63, 209, 63);
+  color: rgb(23, 24, 21);
+  font-weight: bolder;
+  padding: 10px 0;
+}
