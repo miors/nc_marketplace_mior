@@ -7,7 +7,7 @@ export default function SellItemPage({ categoriesInApp }) {
   const [imgUrl, setImgUrl] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Please select a category:");
   const [item, setItem] = useState({});
 
   useEffect(() => {}, []);
@@ -18,6 +18,11 @@ export default function SellItemPage({ categoriesInApp }) {
       .postNewSellItem(itemName, imgUrl, price, description, category)
       .then((item) => {
         setItem(item);
+        setItemName("");
+        setImgUrl("");
+        setPrice("");
+        setDescription("");
+        setCategory("Please select a category:");
       });
   }
 
